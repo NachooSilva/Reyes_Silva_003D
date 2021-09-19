@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar> <ion-buttons slot="start">
+    <ion-back-button
+    defaultHref="/"
+    text="Atrás"
+    color="primary"
+    mode="ios"
+    ></ion-back-button>
+  </ion-buttons>
+    <ion-title class="met">Registro Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+    <form #formulario="ngForm" (ngSubmit) ="onSubmit()">
+      <!--formulario
+      <ion-list-header>
+        <ion-label>Formulario Válido: {{formulario.valid}} </ion-label>
+      </ion-list-header>
+      --> 
+      <ion-item >
+        <ion-label class="letras" position="floating" required >Nombre:</ion-label>
+        <ion-input ></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label class="letras2" position="floating" required>Apellido:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label class="letras" position="floating" required>Nombre de Usuario:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label class="letras2" >Edad: </ion-label>
+        <ion-input type="number" value="15" min="15" required></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label class="letras" position="floating">Género</ion-label>
+        <ion-select placeholder="Elija uno">
+          <ion-select-option value="f">Femenino</ion-select-option>
+          <ion-select-option value="m">Masculino</ion-select-option>
+          <ion-select-option value="p">Prefiero no decirlo</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label class="letras2" position="floating" >Email: </ion-label>
+        <ion-input type="email" placeholder="Email"
+                  name="email" [(ngModel)]= "usuario.email"
+                  pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                  required>
+        </ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label class="letras" position="floating">Contraseña: </ion-label>
+        <ion-input type="password" placeholder="Contraseña"
+                  name="password" [(ngModel)]= "usuario.password"
+                  required>
+        </ion-input>
+      </ion-item>
+      <br>
+    </form>
+    <ion-card-content>
+      <ion-button [disabled] ="formulario.invalid"
+          type="submit" expand="block" routerLink="/inicio">
+        Enviar Datos
+      </ion-button>
+    </ion-card-content>
+  
+
+</ion-content>
